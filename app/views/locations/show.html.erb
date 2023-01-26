@@ -20,12 +20,16 @@
                 <p>Overview</p>
                 <img src=<%= @weather_civil_light_url %> alt ="7 days forecast">
                 <div class='locationDetailsub'>
-                    <p>Postcode : <%= @location.postcode %></p>
-                    <p>City : <%=  @location.city_name %></p>
-                    <p>Temperature : <%= (@data.main.temp.to_f - 273.15).round(2) %> °C.</p>
-                    <p>Feels like : <%= (@data.main.feels_like.to_f - 273.15).round(2) %> °C.</p>
-                    <p>Maximum : <%= (@data.main.temp_max.to_f - 273.15).round(2) %> °C.</p>
-                    <p>Minimum : <%= (@data.main.temp_min.to_f - 273.1).round(2) %> °C.</p>
+                    <div class ='locationDetailsub1'>
+                        <p>Postcode : <%= @location.postcode %></p>
+                        <p>City : <%=  @location.city_name %></p>
+                    </div>
+                    <div class='locationDetailsub2'>
+                        <p>Temperature : <%= (@data.main.temp.to_f - 273.15).round(2) %> °C.</p>
+                        <p>Feels like : <%= (@data.main.feels_like.to_f - 273.15).round(2) %> °C.</p>
+                        <p>Maximum : <%= (@data.main.temp_max.to_f - 273.15).round(2) %> °C.</p>
+                        <p>Minimum : <%= (@data.main.temp_min.to_f - 273.1).round(2) %> °C.</p>
+                    </div>                
                 </div>
             </div>
         </div>

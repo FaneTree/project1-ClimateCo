@@ -77,18 +77,28 @@
         display: grid;
         grid-template-columns: repeat(3, auto);
         grid-row: 3/4;
+        gap: 20px;
         .locationDetailMain {
             .locationDetail {
                 p {
                     font-size: 20px;
+                    font-weight: bold;
                 }
-                .locationDetailsub p {
-                    font-size: 20px;
-                    text-align: left;
+                .locationDetailsub {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    .locationDetailsub1, .locationDetailsub2 p {
+                        font-size: 15px;
+                        text-align: left;
+                        font-weight: normal;
+                    }
+                }
+                img {
+                    max-width: 500px;
                 }
             }
             .feature {
-                max-width: 550px;
+                max-width: 400px;
                 border-radius: 10%;
                 margin: 20px 0;
             }
@@ -96,11 +106,19 @@
         .weatherdetailsub1{
             p {
                 font-size: 20px;
+                font-weight: bold;
+            }
+            img {
+                max-width: 500px;
             }
         }
         .weatherdetailsub2{
             p{
                 font-size: 20px;
+                font-weight: bold;
+            }
+            img {
+                max-width: 400px;
             }
         }
     }
