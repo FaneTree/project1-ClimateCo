@@ -10,6 +10,27 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class = 'controller'>
+      <h1><img class = 'logo' src = "/assets/logo.png" alt = "ClimateCo"> ClimateCo</h1>
+      <nav>
+          <%= link_to "Home", root_path %>
+          <% if @current_user.present? %> 
+            <% if @current_user.admin? %>
+                  <%= link_to "All users", users_path %>
+                  <%= link_to "Add location", new_location_path %>
+                  <%= link_to "Add city", new_city_path %>
+            <% end %>  
+            <%# <%= link_to "Main", main_user_path(@current_user.id)%>
+                <%= link_to "All locations", locations_path%>
+                <%= link_to "All cities", cities_path%>
+                <%= link_to "Sign out (#{ @current_user.email})", login_path, :method => 'delete' %>
+          <% else %>
+              <%= link_to "About", about_path %>
+              <%= link_to "Sign up", new_user_path %>
+              <%= link_to "Sign in", login_path %>
+          <% end %>
+      </nav>
+      </div>
+      <%= yield %> 
   </body>
 </html>

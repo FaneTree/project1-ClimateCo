@@ -1,0 +1,68 @@
+<%# Before login %>
+<% unless session[:user_id].present?  %>
+    <div class = "mainHome">
+        <div>
+            <p>Get pease of mind knowing the weather for the place you go</p>
+            <button><%= link_to "Start Now", new_user_path %></button>
+        </div>
+        <img class = "homeLogo" src = "/assets/home.png" alt = "HomeLogo">
+    <div>
+
+<% else %>
+<%# After login %>    
+
+    <% if @current_user.admin? %>
+        <%# Admin page %>
+        <div class = 'adminpage'>
+            <h1>Admin page</h1>
+            <div class = 'adminbtn'>
+                <p>User :</p>
+                    <button><%= link_to "All users", users_path %></button>
+                <p>location :</p>
+                    <button><%= link_to "Add location", new_location_path %></button>
+                    <button><%= link_to "All locations", locations_path%></button>
+                <p>City :</p>
+                    <button><%= link_to "Add location", new_city_path %></button>
+                    <button><%= link_to "All locations", cities_path%></button>
+            </div>
+        </div>
+    <% else %>
+        <%# User page %>
+        <div class = 'user'>
+            <h1>Your Favorite Locations</h1>
+            <div class = 'userImage'>
+                <img  src = "/assets/user.png" alt = "user">
+                <p><%= @current_user.email %></p>
+            </div>
+        </div>
+        <div class = 'favoriteMain'>
+        <% if @favorite_exists == true %>
+            <%# show favorite list %>
+            <% @current_user.favorites.each do |favorite|  %>
+                <div class = "favorites">
+                    <%# show favorite location %>
+                    <div class = "dataForecastLocation">
+                        <%= link_to Location.find_by(id: favorite.location_id ).name, location_path(id: favorite.location_id) %>
+                        <a class = 'addtime'>Added : <%= favorite.created_at.strftime("%I:%M %p") %></a>
+                    </div>
+                    <div class = "dataForecast">
+                        <%# show favorite forecast %>
+                        <img src = "https://www.7timer.info/bin/civillight.php?lon=<%= @client.current_weather(zip: Location.find_by(id: favorite.location_id ).postcode , country: 'AU').coord.lon.round(3)%>&lat=<%= @client.current_weather(zip: Location.find_by(id: favorite.location_id ).postcode , country: 'AU').coord.lat.round(3)%>&lang=en&ac=0&unit=metric&tzshift=0" alt = <%= Location.find_by(id: favorite.location_id ).name %> class = "forecast">
+
+                        <div class = 'dataTemp'>
+                            <%# show details %>
+                            <div>Temperature : <%= (@client.current_weather(zip: Location.find_by(id: favorite.location_id ).postcode , country: 'AU').main.temp.to_f - 273.15).round(2) %> °C.</div>
+
+                            <div>Feels like : <%= (@client.current_weather(zip: Location.find_by(id: favorite.location_id ).postcode , country: 'AU').main.feels_like.to_f - 273.15).round(2) %> °C.</div>
+
+                            <div>Maximum : <%= (@client.current_weather(zip: Location.find_by(id: favorite.location_id ).postcode , country: 'AU').main.temp_max.to_f - 273.15).round(2) %> °C.</div>
+
+                            <div>Minimum : <%= (@client.current_weather(zip: Location.find_by(id: favorite.location_id ).postcode , country: 'AU').main.temp_min.to_f - 273.1).round(2) %> °C.</div>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+        </div>
+    <% end %>
+<% end  %>

@@ -1,0 +1,11 @@
+<div class = 'allCity'>
+    <h1>All Cities</h1>
+    <div class = 'cities'>
+    <% @cities.each do |city| %>
+        <div class = 'cities-item'>
+        <%= link_to image_tag(city.image, :class => 'thumb'), city %>
+        <p><%= city.name %></p>
+        </div>
+    <% end %>
+    </div>
+</div>

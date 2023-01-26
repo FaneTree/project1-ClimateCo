@@ -1,0 +1,150 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Homepage
+.mainHome {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    margin: 0 auto;
+    div {
+        margin-left:100px;
+        p {
+            font-size: 80px;
+            margin-top: 40px;
+        }
+        button {
+            padding: 15px;
+            border-radius: 5%;
+        }
+        button a {
+            font-size: 20px;
+            color: black;
+            text-decoration: none;
+            padding: 10px;
+        }
+    }
+    img {
+        width: 450px;
+        margin-left: 50px;
+        justify-items: center;
+    }
+ }
+
+ // admin page
+ .adminpage {
+    margin: 0 50px;
+    width: 900px;
+    h1  {
+        margin-left: 50px;
+        margin-top: 50px;
+        font-size: 50px;
+    }
+    .adminbtn {
+        margin: 0 100px;
+        p {
+            font-size: 30px;
+        }
+        button {
+            padding: 15px;
+            border-radius: 5%;
+            margin: 10px;
+        }
+        button a {
+            font-size: 20px;
+            color: black;
+            text-decoration: none;
+            padding: 10px;
+        }
+    }
+ }
+
+ // About page
+ .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    div {
+        margin-left: 100px;
+        h2 {
+            font-size: 30px;
+        }
+        p {
+            font-size: 20px;
+        }
+        button {
+            padding: 15px;
+            border-radius: 5%;
+        }
+        button a {
+            font-size: 20px;
+            color: black;
+            text-decoration: none;
+            padding: 10px;
+        }
+    }
+    img {
+        width: 350px;
+        margin-left: 50px;
+        margin-top: 20px;
+        justify-items: center;
+    }
+ }
+
+ // User favorites page
+ .user {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 20px;
+    margin:20px 100px;
+    border-bottom:2px solid #404040;
+    .userImage {
+        display: flex;
+        justify-content: flex-end;
+        justify-items: center;
+        align-items: center;
+        gap: 10px;
+    }
+    .userImage img {
+        width: 50px;
+    }
+ }
+
+ .favoriteMain {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin:0 120px;
+    .favorites {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        margin: 10px auto;
+        padding-bottom: 10px;
+        border-bottom:2px solid #404040;
+        .dataForecastLocation {
+            a {
+                font-size: 40px;
+                text-decoration: none;
+                color: #4682B4;
+                margin: 0 10px;
+            }
+            .addtime {
+                font-size: 20px;
+                color: #404040;
+            }
+        }
+        .dataForecast {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            justify-items: center;
+            font-size: 15px;
+            align-items: center;
+            gap: 10px;
+            .dataTemp {
+                width: 220px;
+            }
+        }
+    }
+ }

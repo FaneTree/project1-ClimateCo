@@ -1,0 +1,14 @@
+<div class = 'allLocation'>
+    <h1>All Locations</h1>
+    <% @cities.each do |city| %>
+        <h2> > <%= city.name %></h2>
+        <div class = 'citypoint'>
+            <% Location.where(city_name: city.name).each do |location| %>
+                <div class = 'locationpoint'>
+                    <%= link_to image_tag(location.image, :class => 'thumb'), location %>
+                    <p><%= link_to location.name, location %></p>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+</div>

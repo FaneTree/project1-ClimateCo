@@ -1,0 +1,9 @@
+<%= form_for @city do |f| %>
+		<%= f.label :City_name %>
+		<%= f.text_field :name, :required => true %>
+
+        <%= f.label :image%>
+		<%= f.url_field :image, :required => true %>
+
+		<%= f.submit %>
+<% end %>

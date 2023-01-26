@@ -1,0 +1,15 @@
+<%= form_for @location do |f| %>
+		<%= f.label :Location_name %>
+		<%= f.text_field :name, :required => true %>
+
+        <%= f.label :postcode %>
+		<%= f.text_field :postcode, :required => true %>
+
+        <%= f.label :city %>
+		<%= f.select :city_name, City.pluck(:name, :name), include_blank: true %>
+
+        <%= f.label :image %>
+		<%= f.url_field :image, :required => true %>
+
+		<%= f.submit %>
+<% end %>

@@ -1,0 +1,6 @@
+<h1>Your Favorite Locations</h1>
+
+<% @current_user.favorites.each do |favorite|  %>
+    <%= favorite.created_at.strftime("%I:%M %p") %> Your favorited location<%= link_to Location.find_by(id: favorite.location_id ).name, location_path(id: favorite.location_id) %>
+    <br>
+<% end %>

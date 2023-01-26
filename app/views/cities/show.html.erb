@@ -1,0 +1,19 @@
+<h1><%= @city.name %></h1>
+
+<% if @current_user.admin? %>
+    <div class = "controls">
+        <%= link_to 'Edit city', edit_city_path(@city) %>
+        |
+        <%= link_to 'Delete city', @city, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>
+    </div>
+<% end %>
+
+<%= image_tag @city.image, :class => 'feature' %>
+</br>
+
+<h2> Locations in <%= @city.name %></h2>
+<% @city.locations.each do |location| %>
+    <%= link_to image_tag(location.image, :class => 'thumb'), location %>
+    <p><%= location.name %></p>
+<% end %>
+
