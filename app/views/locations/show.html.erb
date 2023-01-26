@@ -3,7 +3,7 @@
         <h1><%= @location.name %></h1>
         <div class = 'favoritelogo'>
             <%= link_to favorite_text, favorites_update_path(location: @location), id: 'favorite_link', remote: true %>
-            <img class = 'favorite' src = "/assets/favorite.png" alt = "favorite">
+            <img class = 'favorite' src="https://i.ibb.co/fQBq5PW/favorite.png" alt = "favorite">
         </div>
     </div>
     <% if @current_user.admin? %>
