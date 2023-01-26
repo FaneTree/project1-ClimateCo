@@ -1,33 +1,48 @@
-<h1><%= @location.name %></h1>
-<%= link_to favorite_text, favorites_update_path(location: @location), id: 'favorite_link', remote: true %>
-<% if @current_user.admin? %>
-    <div class = "controls">
-        <%= link_to 'Edit location', edit_location_path(@location) %>
-        |
-        <%= link_to 'Delete location', @location, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>
+<div class = 'locationshow'>
+    <div class = 'locationtopic'>
+        <h1><%= @location.name %></h1>
+        <div class = 'favoritelogo'>
+            <%= link_to favorite_text, favorites_update_path(location: @location), id: 'favorite_link', remote: true %>
+            <img class = 'favorite' src = "/assets/favorite.png" alt = "favorite">
+        </div>
     </div>
-<% end %>
-<%= image_tag @location.image, :class => 'feature' %>
+    <% if @current_user.admin? %>
+            <div class = "controls">
+                <%= link_to 'Edit location', edit_location_path(@location) %>
+                |
+                <%= link_to 'Delete location', @location, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>
+            </div>
+    <% end %>
+    <div class = 'locationcontainer'>
+        <div class = 'locationDetailMain'>
+            <%= image_tag @location.image, :class => 'feature' %>
+            <div class='locationDetail'>
+                <p>Overview</p>
+                <img src=<%= @weather_civil_light_url %> alt ="7 days forecast">
+                <div class='locationDetailsub'>
+                    <p>Postcode : <%= @location.postcode %></p>
+                    <p>City : <%=  @location.city_name %></p>
+                    <p>Temperature : <%= (@data.main.temp.to_f - 273.15).round(2) %> °C.</p>
+                    <p>Feels like : <%= (@data.main.feels_like.to_f - 273.15).round(2) %> °C.</p>
+                    <p>Maximum : <%= (@data.main.temp_max.to_f - 273.15).round(2) %> °C.</p>
+                    <p>Minimum : <%= (@data.main.temp_min.to_f - 273.1).round(2) %> °C.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class = 'weatherdetailsub1'>
+                <p>Next 7 days</p>
+                <img src=<%= @weather_civil_url %> alt ="8 days forecast by hour">
+            </div>
+            
+        <div class = 'weatherdetailsub2'>
+            <p>Overall 2 weeks</p>
+            <img src=<%= @weather_two_week_url %> alt ="two week overview">
+        </div>
+        
+    </div>
 
-<div class='locationDetail'>
-    <p>Postcode : <%= @location.postcode %></p>
-    <p>City : <%=  @location.city_name %></p>
-    <p>Temperature : <%= (@data.main.temp.to_f - 273.15).round(2) %> °C.</p>
-    <p>Feels like : <%= (@data.main.feels_like.to_f - 273.15).round(2) %> °C.</p>
-    <p>Maximum : <%= (@data.main.temp_max.to_f - 273.15).round(2) %> °C.</p>
-    <p>Minimum : <%= (@data.main.temp_min.to_f - 273.1).round(2) %> °C.</p>
 </div>
-
-<p>Overview</p>
-<img src=<%= @weather_civil_light_url %> alt ="7 days forecast">
-
-
-
-<p>Next 7 days</p>
-<img src=<%= @weather_civil_url %> alt ="8 days forecast by hour">
-<p>Overall 2 weeks</p>
-<img src=<%= @weather_two_week_url %> alt ="two week overview">
-
 
 
 

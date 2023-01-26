@@ -43,6 +43,70 @@
     }
 }
 
+// Show page
+.locationshow {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    margin: 20px 50px;
+    .locationtopic{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        border-bottom: 2px solid black;
+        margin-bottom: 10px;
+        .favoritelogo {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+            a {
+                font-size: 40px;
+                text-decoration: none;
+                color: #4682B4;
+                margin: 0 10px;
+                text-align: end;
+            }
+            .favorite {
+                max-width: 50px;
+                height: auto;
+                margin:auto 5px;
+            }
+        }
+    }
+    .locationcontainer{
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        grid-row: 3/4;
+        .locationDetailMain {
+            .locationDetail {
+                p {
+                    font-size: 20px;
+                }
+                .locationDetailsub p {
+                    font-size: 20px;
+                    text-align: left;
+                }
+            }
+            .feature {
+                max-width: 550px;
+                border-radius: 10%;
+                margin: 20px 0;
+            }
+        }
+        .weatherdetailsub1{
+            p {
+                font-size: 20px;
+            }
+        }
+        .weatherdetailsub2{
+            p{
+                font-size: 20px;
+            }
+        }
+    }
+
+}
+
 // New and Edit pages
 .locationpage {
     margin: 80px auto;

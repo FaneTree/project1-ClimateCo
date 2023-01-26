@@ -51,6 +51,7 @@
 
                         <div class = 'dataTemp'>
                             <%# show details %>
+                            <p>Current</p> <br>
                             <div>Temperature : <%= (@client.current_weather(zip: Location.find_by(id: favorite.location_id ).postcode , country: 'AU').main.temp.to_f - 273.15).round(2) %> °C.</div>
 
                             <div>Feels like : <%= (@client.current_weather(zip: Location.find_by(id: favorite.location_id ).postcode , country: 'AU').main.feels_like.to_f - 273.15).round(2) %> °C.</div>

@@ -34,10 +34,56 @@
 }
 
 // show page
+.cityshow {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    .cityoverall {
+        h1, .controls {
+            margin: 20px 50px;
+        }
+        .feature {
+            margin: 20px 50px;
+            max-width: 500px;
+            border-radius: 10%;
+        }
+    }
+    .cityoverall1 {
+        h2 {
+            margin: 20px 50px;
+        }
+        .citydetailmain {
+            margin: 20px 50px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            .citydetail {
+                display: grid;
+                grid-template-rows: 1fr auto;
+                justify-items: center;
+                align-items: center;
+                background-color: white;
+                border: 2px solid black;
+                border-radius: 10%;
+                a img {
+                    max-width: 200px;
+                    border-radius: 5%;
+                    margin: 10px;
+                }
+                p a {
+                    text-decoration: none;
+                    color: black;
+                    vertical-align: bottom;
+                    margin: 10px
+                }
+            }
+        }
+    }
+}
+
 
 // New and Edit pages
 .citypage {
-     margin: 80px auto;
+    margin: 80px auto;
     width: 900px;
     h1 {
         margin-left: 100px;

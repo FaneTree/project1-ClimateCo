@@ -1,19 +1,27 @@
-<h1><%= @city.name %></h1>
+<div class = 'cityshow'>
+    <div class = 'cityoverall'>
+        <h1><%= @city.name %></h1>
 
-<% if @current_user.admin? %>
-    <div class = "controls">
-        <%= link_to 'Edit city', edit_city_path(@city) %>
-        |
-        <%= link_to 'Delete city', @city, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>
+        <% if @current_user.admin? %>
+            <div class = "controls">
+                <%= link_to 'Edit city', edit_city_path(@city) %>
+                |
+                <%= link_to 'Delete city', @city, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>
+            </div>
+        <% end %>
+
+        <%= image_tag @city.image, :class => 'feature' %>
     </div>
-<% end %>
-
-<%= image_tag @city.image, :class => 'feature' %>
-</br>
-
-<h2> Locations in <%= @city.name %></h2>
-<% @city.locations.each do |location| %>
-    <%= link_to image_tag(location.image, :class => 'thumb'), location %>
-    <p><%= location.name %></p>
-<% end %>
+   <div class = 'cityoverall1'>
+        <h2> Locations in <%= @city.name %></h2>
+        <div class = 'citydetailmain'>
+        <% @city.locations.each do |location| %>
+            <div class = 'citydetail'>
+                <%= link_to image_tag(location.image, :class => 'thumb'), location %>
+                <p><%= location.name %></p>
+            </div>
+        <% end %>
+        </div>
+    <div>
+</div>
 
