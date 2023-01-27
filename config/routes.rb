@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :locations
   resources :cities
 
-  get '/main/:id' => 'locations#main', :as => 'main_user'
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   delete 'login' => 'session#destroy'

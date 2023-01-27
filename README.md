@@ -4,8 +4,9 @@ ClimateCo give accurate and up-to-date weather forecasts for locations around Au
 How it works
 
 Choose location, get current weather and forecast for next 7 days, additional features available.
-
 Our known for reliable forecasts and easy-to-use interface.
+
+Please see more details [here](https://climateco.herokuapp.com/).
 
 ### **Built with**
 - Ruby of Rails
