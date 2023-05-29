@@ -6,7 +6,7 @@ class PagesController < ApplicationController
     # spare code for improvement
     # <%= link_to favorite_text, favorites_update_path(location: Location.find_by(id: favorite.location_id)), id: 'favorite_link', remote: true %>
     @client = OpenWeather::Client.new(
-      api_key: "59b1ec949fc0e774c1f7acfdf7b0ed48"
+      api_key: ENV['OPENWEATHER_API_KEY']
     )
 
     # List as same as locations show but in order to loop in the page so the note is as beow :

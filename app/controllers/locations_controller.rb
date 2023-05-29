@@ -35,7 +35,7 @@ class LocationsController < ApplicationController
   def show
     @favorite_exists = Favorite.where(location_id: @location.id, user_id: @current_user.id) == []? false : true
     @client = OpenWeather::Client.new(
-      api_key: "59b1ec949fc0e774c1f7acfdf7b0ed48"
+      api_key: ENV['OPENWEATHER_API_KEY']
     )
     @data = @client.current_weather(zip: @location.postcode , country: 'AU')
     lon = @data.coord.lon.round(3)
