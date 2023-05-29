@@ -120,7 +120,7 @@ To summarise, I was struggle on the favorite part for a while until the solution
          
 3. How to manage class name, and id name for SCSS and reduce the repeating steps. During creation, it was hard to organise and manage the naming to be logical and efficient.
 
-### :book: Lesson:
+### :book: Lessons:
 
 - Design schema is always challenging as you might miss something or put something that is never used.
 - The project taught me about CRUD system, schema design, and model-view-controller (MVC).
