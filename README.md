@@ -17,6 +17,7 @@ Please see more details [here](https://climateco.herokuapp.com/).
 - HTML
 - CSS/SCSS
 - Javascript
+- Deployed on Heroku
 
 ### Snapshots
 |Home page|
